@@ -45,6 +45,7 @@ function App() {
     auth.authorize({ password, email })
       .then(data => {
         if (data.token) {
+          localStorage.setItem('jwt', data.token);
           setLoggedIn(true);
           history.push('/');
         }
@@ -63,15 +64,17 @@ function App() {
     const jwt = localStorage.getItem('jwt');
 
     if (jwt) {
-      auth.getContent(jwt).then(res => {
-        if (res) {
-          setEmail(res.data.email);
-          setLoggedIn(true);
-          history.push('/');
-        }
-      })
+      auth.getContent(jwt)
+        .then(res => {
+          if (res) {
+            setEmail(res.data.email);
+            setLoggedIn(true);
+            history.push('/');
+          }
+        })
+        .catch(err => console.log(err));
     }
-  })
+  }, [history])
 
   useEffect(() => {
     api
@@ -99,8 +102,7 @@ function App() {
     api
       .removeCard(removedCard._id)
       .then(() => {
-        const newArr = cards.filter((card) => card._id !== removedCard._id);
-        setCards(newArr);
+        setCards((cards) => cards.filter((card) => card._id !== removedCard._id))
       })
       .catch((err) => console.log(err));
   }
@@ -119,9 +121,9 @@ function App() {
       .setUserInfo(formData)
       .then((formData) => {
         setCurrentUser(formData);
+        closeAllPopups();
       })
       .catch((err) => console.log(err));
-    closeAllPopups();
   }
 
   function handleUpdateAvatar(formData) {
@@ -129,9 +131,9 @@ function App() {
       .setUserAvatar(formData)
       .then((formData) => {
         setCurrentUser(formData);
+        closeAllPopups();
       })
       .catch((err) => console.log(err));
-    closeAllPopups();
   }
 
   function handleAddPlaceSubmit(newCard) {
@@ -139,9 +141,9 @@ function App() {
       .addCard(newCard)
       .then((newCard) => {
         setCards([newCard, ...cards]);
+        closeAllPopups();
       })
       .catch((err) => console.log(err));
-    closeAllPopups();
   }
 
   function handleHamburgerMenuClick() {

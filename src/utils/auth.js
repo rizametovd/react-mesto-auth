@@ -14,7 +14,7 @@ export const register = (email, password) => {
             if (res.ok) {
                 return res.json();
             }
-            return Promise.reject(res);
+            return Promise.reject(`Ошибка: ${res.status}`);
         });
 }
 
@@ -27,15 +27,12 @@ export const authorize = ({ password, email }) => {
         },
         body: JSON.stringify({ password, email })
     })
-        .then(res => res.json())
-        .then(data => {
-
-            if (data.token) {
-                localStorage.setItem('jwt', data.token);
-                return data
+        .then(res => {
+            if (res.ok) {
+                return res.json();
             }
+            return Promise.reject(`Ошибка: ${res.status}`);
         })
-        .catch(err => console.log(err));
 }
 
 export const getContent = (token) => {
@@ -47,7 +44,11 @@ export const getContent = (token) => {
             'Authorization': `Bearer ${token}`
         }
     })
-        .then(res => res.json())
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(`Ошибка: ${res.status}`);
+        })
         .then(data => data)
-
 }
