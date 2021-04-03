@@ -1,5 +1,5 @@
 import PopupWithForm from './PopupWithForm';
-import {useState} from 'react';
+import { useState } from 'react';
 
 
 function AddPlacePopup(props) {
@@ -36,7 +36,7 @@ function AddPlacePopup(props) {
         >
             <label className="popup__label">
                 <input
-                    id="name__input"
+                    id="title__input"
                     type="text"
                     name="name"
                     value={name}
@@ -51,7 +51,7 @@ function AddPlacePopup(props) {
             </label>
             <label className="popup__label">
                 <input
-                    id="about__input"
+                    id="link__input"
                     type="text"
                     name="about"
                     value={link}

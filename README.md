@@ -5,11 +5,11 @@
 2. Структура проекта создана в соответствии с методологией БЭМ Nested.
 
 ## Changelog Спринт 12
-1. Добавил что-то.
+1. Добавил регистрацию и авторизацию.
 
 ## Changelog Спринт 11
 1. Сделал загрузку карточек, удаление и лайки. Все по ТЗ.
-2. Ссылка на GH-Pages: https://rizametovd.github.io/mesto-react/
+2. Ссылка на GH-Pages: https://rizametovd.github.io/mesto-react-auth/
 
 ## Changlelog Спринт 10
 1. Проект Место портирован на Реакт.

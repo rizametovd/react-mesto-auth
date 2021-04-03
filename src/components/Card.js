@@ -1,5 +1,5 @@
 import React from 'react';
-import {CurrentUserContext} from '../contexts/CurrentUserContext';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 
 function Card(props) {
@@ -13,7 +13,7 @@ function Card(props) {
         : 'cards__item-like-icon-button button';
 
     function handleClick() {
-        props.onCardClick({name: props.card.name, link: props.card.link});
+        props.onCardClick({ name: props.card.name, link: props.card.link });
     }
 
     function handleLikeClick() {
