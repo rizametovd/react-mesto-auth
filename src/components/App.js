@@ -30,6 +30,7 @@ function App() {
   const [tooltipStatus, setTooltipStatus] = useState('');
   const history = useHistory();
 
+
   function onRegister(email, password) {
     auth.register(email, password)
       .then(res => {
@@ -45,6 +46,7 @@ function App() {
     auth.authorize({ password, email })
       .then(data => {
         if (data.token) {
+          setEmail(email);
           localStorage.setItem('jwt', data.token);
           setLoggedIn(true);
           history.push('/');
