@@ -1,32 +1,38 @@
-# Проект 12: Место на Реакте
+# Проект: Mesto на React
 
-## Описание проекта
-1. Работа выполнена в соответствии с техническим заданием. Сайт адаптируется под разные разрешения экрана. Код написан на HTML, CSS и JavaScript.
-2. Структура проекта создана в соответствии с методологией БЭМ Nested.
+![React](https://img.shields.io/badge/-React-f09128?logo=react&logoColor=white)
+![HTML5](https://img.shields.io/badge/-HTML5-f09128?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/-CSS3-f09128?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/-JavaScript-f09128?logo=javaScript&logoColor=white)
+![Webpack](https://img.shields.io/badge/-Webpack-f09128?logo=webpack&logoColor=white)
 
-## Changelog Спринт 12
-1. Добавил регистрацию и авторизацию.
+## Описание
+SPA приложение на React с регистрацией и авторизацией. Аналог Инстаграма.</br>
+Ссылка на gh-pages: https://rizametovd.github.io/react-mesto-auth/ .
 
-## Changelog Спринт 11
-1. Сделал загрузку карточек, удаление и лайки. Все по ТЗ.
-2. Ссылка на GH-Pages: https://rizametovd.github.io/react-mesto-auth/
+## Превью
+![Превью проекта](./public/preview.gif)
 
-## Changlelog Спринт 10
-1. Проект Место портирован на Реакт.
+## Задача
+* Написать регистрацию и авторизацию в проект [Mesto](https://rizametovd.github.io/mesto-react/) на React
 
-## Changelog Спринт 9
-1. Добавил отправку данных на сервер. Теперь все сохраняется после перезагрузки страницы.
+## Стек
+* React
+* HTML5
+* CSS
+* BEM
+* JavaScript
+* WebPack
+* API
 
-## Changelog Спринт 8
-1. Добавлены классы: Popup, PopupWithForm, PopupWithImage, Section, UserInfo.
-2. Созданы папки для констант, модулей.
-
-## Changelog Спринт 7
-1. Добавлено два класса: Card и FormValidator.
-
-## Changelog Спринт 6
-1. Добавлена валидация форм.
-2. Добавлены функии закрытия попапов при клике на оверлей и на esc.
-
-## Что дальше?
-Дальше 11 спринт и доработка этого проекта. Очевидно будет еще рефакторинг и новый функционал.
+## Установка
+Для запуска на локальной машине необходимо:</br>
+1. Установить npm зависимости:</br>
+```sh
+npm install
+```
+2. Запустить в режиме разработки:</br>
+```sh
+npm run start
+```
+Если все прошло успешно, проект будет запущен на `http://localhost:3000`

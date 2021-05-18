@@ -21,8 +21,8 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState({ name: "", link: "" });
-  const [currentUser, setCurrentUser] = useState("");
+  const [selectedCard, setSelectedCard] = useState({ name: '', link: '' });
+  const [currentUser, setCurrentUser] = useState('');
   const [cards, setCards] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [hamburgerMenu, setHamburgerMenu] = useState(false);
@@ -30,21 +30,22 @@ function App() {
   const [tooltipStatus, setTooltipStatus] = useState('');
   const history = useHistory();
 
-
   function onRegister(email, password) {
-    auth.register(email, password)
-      .then(res => {
+    auth
+      .register(email, password)
+      .then((res) => {
         if (res.data._id) {
           setTooltipStatus('success');
-          history.push('/sign-in')
+          history.push('/sign-in');
         }
       })
-      .catch(res => setTooltipStatus('fail'));
+      .catch((res) => setTooltipStatus('fail'));
   }
 
   function onLogin({ password, email }) {
-    auth.authorize({ password, email })
-      .then(data => {
+    auth
+      .authorize({ password, email })
+      .then((data) => {
         if (data.token) {
           setEmail(email);
           localStorage.setItem('jwt', data.token);
@@ -52,7 +53,7 @@ function App() {
           history.push('/');
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   function onSignOut() {
@@ -66,17 +67,18 @@ function App() {
     const jwt = localStorage.getItem('jwt');
 
     if (jwt) {
-      auth.getContent(jwt)
-        .then(res => {
+      auth
+        .getContent(jwt)
+        .then((res) => {
           if (res) {
             setEmail(res.data.email);
             setLoggedIn(true);
             history.push('/');
           }
         })
-        .catch(err => console.log(err));
+        .catch((err) => console.log(err));
     }
-  }, [history])
+  }, [history]);
 
   useEffect(() => {
     api
@@ -104,7 +106,9 @@ function App() {
     api
       .removeCard(removedCard._id)
       .then(() => {
-        setCards((cards) => cards.filter((card) => card._id !== removedCard._id))
+        setCards((cards) =>
+          cards.filter((card) => card._id !== removedCard._id)
+        );
       })
       .catch((err) => console.log(err));
   }
@@ -149,7 +153,7 @@ function App() {
   }
 
   function handleHamburgerMenuClick() {
-    setHamburgerMenu(prevHamburgerMenuState => !prevHamburgerMenuState);
+    setHamburgerMenu((prevHamburgerMenuState) => !prevHamburgerMenuState);
   }
 
   function handleCardClick(cardData) {
@@ -172,7 +176,7 @@ function App() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
-    setSelectedCard({ name: "", link: "" });
+    setSelectedCard({ name: '', link: '' });
     setTooltipStatus('');
   }
 
@@ -194,7 +198,8 @@ function App() {
 
         <Switch>
           <ProtectedRoute
-            exact path="/"
+            exact
+            path="/"
             loggedIn={loggedIn}
             component={Main}
             cards={cards}
@@ -242,7 +247,6 @@ function App() {
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
         <InfoTooltip status={tooltipStatus} onClose={closeAllPopups} />
-
       </div>
     </CurrentUserContext.Provider>
   );
