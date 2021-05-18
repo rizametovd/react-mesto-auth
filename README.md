@@ -1,4 +1,4 @@
-# Проект: Mesto на React
+# Проект: Mesto на React с регистрацией и авторизацией
 
 ![React](https://img.shields.io/badge/-React-f09128?logo=react&logoColor=white)
 ![HTML5](https://img.shields.io/badge/-HTML5-f09128?logo=html5&logoColor=white)
